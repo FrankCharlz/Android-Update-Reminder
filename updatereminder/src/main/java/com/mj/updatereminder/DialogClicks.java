@@ -30,7 +30,10 @@ public class DialogClicks  implements DialogInterface.OnClickListener{
     }
 
     private void remindHerLater() {
-        //UpdateReminder.decrementLaunches();
+        //set remaining launches = 7 eg.;
+        Prefs prefs = new Prefs(context);
+        prefs.setRemainingLaunches(7);
+        prefs = null;
     }
 
     private void startMarketActivity() {

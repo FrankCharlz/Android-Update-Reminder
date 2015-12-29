@@ -43,6 +43,9 @@ public class UpdateReminder {
             return;
         }
 
+        if (current_version_code < prefs_version_code)
+            prefs.decrementLaunches();
+
         if (prefs.getLaunchesRemaining() == 0) createUpdateDialog(context);
 
 

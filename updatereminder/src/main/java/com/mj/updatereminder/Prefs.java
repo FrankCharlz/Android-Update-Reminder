@@ -29,11 +29,21 @@ public class Prefs {
         return prefs.getInt(PREFS_VERSION_CODE, 0);
     }
 
-    private void updateUpLaunches() {
-
-    }
-
     public void setPrefsVersionCode(int code) {
         prefs.edit().putInt(PREFS_VERSION_CODE, code).apply();
+    }
+
+    public void decrementLaunches() {
+        //logic logic logic
+        int rm = getLaunchesRemaining();
+        rm--;
+        if (rm < 0)
+            prefs.edit().putInt(PREFS_LAUNCHES_LEFT, rm).apply();
+        else
+            prefs.edit().putInt(PREFS_LAUNCHES_LEFT, 0).apply();
+    }
+
+    public void setRemainingLaunches(int rm) {
+        prefs.edit().putInt(PREFS_LAUNCHES_LEFT, rm).apply();
     }
 }
